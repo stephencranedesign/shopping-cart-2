@@ -171,7 +171,8 @@ ShoppingList.prototype.addItem = function(name) {
         dataType: 'json',
         contentType: 'application/json'
     });
-    ajax.done(this.getItems.bind(this));
+    var self = this;
+    ajax.done(self.getItems.bind(self));
 };
 
 ShoppingList.prototype.deleteItem = function(id) {
