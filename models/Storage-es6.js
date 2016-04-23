@@ -32,7 +32,6 @@ class Storage {
         return updatedItem;
     }
     
-    
 }
 
 module.exports = Storage;

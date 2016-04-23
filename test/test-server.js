@@ -3,9 +3,7 @@ var chaiHttp = require("chai-http");
 var server = require('../server.js');
 
 var should = chai.should();
-
 var app = server.app;
-var storage = server.storage;
 
 chai.use(chaiHttp);
 
@@ -44,15 +42,6 @@ describe('Shopping List', function() {
                 res.body.id.should.be.a('number');
                 res.body.name.should.equal('Kale');
                 
-                storage.items.should.be.a('array');
-                storage.items.should.have.length(4);
-                storage.items[3].should.be.a('object');
-                storage.items[3].should.have.property('id');
-                storage.items[3].should.have.property('name');
-                storage.items[3].id.should.be.a('number');
-                storage.items[3].name.should.be.a('string');
-                storage.items[3].name.should.equal('Kale');
-                
                 done();
             });
     });
@@ -70,15 +59,6 @@ describe('Shopping List', function() {
                 res.body.name.should.be.a('string');
                 res.body.id.should.be.a('number');
                 res.body.name.should.equal('Onions');
-                
-                storage.items.should.be.a('array');
-                storage.items.should.have.length(4);
-                storage.items[0].should.be.a('object');
-                storage.items[0].should.have.property('id');
-                storage.items[0].should.have.property('name');
-                storage.items[0].id.should.be.a('number');
-                storage.items[0].name.should.be.a('string');
-                storage.items[0].name.should.equal('Onions');
                 
                 done();
             });
@@ -99,16 +79,6 @@ describe('Shopping List', function() {
                 res.body.id.should.be.a('number');
                 res.body.name.should.equal('Sausages');
                 
-                storage.items.should.be.a('array');
-                storage.items.should.have.length(5);
-                
-                storage.items[4].should.be.a('object');
-                storage.items[4].should.have.property('id');
-                storage.items[4].should.have.property('name');
-                storage.items[4].id.should.be.a('number');
-                storage.items[4].name.should.be.a('string');
-                storage.items[4].name.should.equal('Sausages');
-                
                 done();
             });
     });
@@ -126,15 +96,6 @@ describe('Shopping List', function() {
                 res.body.id.should.be.a('number');
                 res.body.name.should.equal('Onions');
                 
-                storage.items.should.be.a('array');
-                storage.items.should.have.length(4);
-                storage.items[0].should.be.a('object');
-                storage.items[0].should.have.property('id');
-                storage.items[0].should.have.property('name');
-                storage.items[0].id.should.be.a('number');
-                storage.items[0].name.should.be.a('string');
-                storage.items[0].name.should.equal('Tomatoes');
-                
                 done();
             });
     });
@@ -148,9 +109,6 @@ describe('Shopping List', function() {
                 res.body.should.have.property('message');
                 res.body.message.should.be.a('string');
                 res.body.message.should.equal('no item with that id');
-                
-                storage.items.should.be.a('array');
-                storage.items.should.have.length(4);
                 
                 done();
             });
